@@ -1,12 +1,11 @@
 "use strict";
 
 function rgb(r, g, b){
-  // complete this function  
   let h1 = convert(r);
-  // let h2 = convert(g);
-  // let h3 = convert(b);
+  let h2 = convert(g);
+  let h3 = convert(b);
   
-  console.log(h1);
+  console.log(h1 + h2 + h3);
 }
 
 function convert(color) {
@@ -24,16 +23,29 @@ function convert(color) {
       let first = color - remainder;
       let second = remainder * 16;
 
-      console.log(remainder);
-      console.log(first);
-      console.log(second);
+      if (first >= 10 && first <= 14) {
+        first = alpha[parseInt(first.toString()[1])];
+      } else if (first > 14) {
+        first = "F";
+      }
+
+      if (second >= 10 && second <= 14) {
+        second = alpha[parseInt(second.toString()[1])];
+      } else if (second > 14) {
+        second = "F";
+      }
+
+      // console.log("remainder: ", remainder)
+      // console.log("first: ", first);
+      // console.log("second:" , second)
+      color = (first + second);
     }
   }
   
   return color;
 }
 
-console.log(rgb(0, 0, 0))
-console.log(rgb(0, 0, -20))
-console.log(rgb(300,255,255))
-console.log(rgb(173,255,47))
+console.log(rgb(0, 0, 0));
+console.log(rgb(0, 0, -20));
+console.log(rgb(300, 255, 255));
+console.log(rgb(173, 255, 47));
