@@ -5,7 +5,7 @@ function rgb(r, g, b){
   let h2 = convert(g);
   let h3 = convert(b);
   
-  console.log(h1 + h2 + h3);
+  return (h1 + h2 + h3);
 }
 
 function convert(color) {
