@@ -1,5 +1,6 @@
 "use strict";
 
+// Solution 1
 function rgb(r, g, b){
   let h1 = convert(r);
   let h2 = convert(g);
@@ -44,3 +45,21 @@ console.log(rgb(300, 255, 255));
 console.log(rgb(173, 255, 47));
 console.log(rgb(32, 104, 298));
 console.log(rgb(16, 192, 213));
+
+// Solution 2
+function rgb2(r, g, b){
+  return toHex(r)+toHex(g)+toHex(b);
+}
+
+function toHex(d) {
+    if(d < 0 ) {return "00";}
+    if(d > 255 ) {return "FF";}
+    return  ("0"+(Number(d).toString(16))).slice(-2).toUpperCase()
+}
+
+// Solution 3
+function rgb(r, g, b){
+  return [r,g,b].map(function(x) {
+    return ('0'+Math.max(0, Math.min(255, x)).toString(16)).slice(-2);
+  }).join('').toUpperCase();
+}
